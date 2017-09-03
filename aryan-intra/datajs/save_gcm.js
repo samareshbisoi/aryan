@@ -1,6 +1,6 @@
 function registerGCM() {
 
- 
+ alert('calling push init');
         console.log('calling push init');
         var push = PushNotification.init({
             "android": {

@@ -30,7 +30,7 @@
                     success: function(data){
                         if(data=="ok")
                         {
-                            alert("Thanks ,we have saved the attendence data");
+                            alert("Thanks ,we have saved the assignment data");
                             $("#submit").val('submit');
 							$("#a_desc").val('') ;
 							$("#a_title").val('') ;
