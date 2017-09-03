@@ -37,7 +37,9 @@
     <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1" />
 
 
-
+   <plugin name="phonegap-plugin-push" source="npm" spec="~1.8.0">
+        <variable name="SENDER_ID" value="194482990168" />
+    </plugin>
 
 
 

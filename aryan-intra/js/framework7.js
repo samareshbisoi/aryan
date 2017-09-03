@@ -36,7 +36,7 @@
             uniqueHistoryIgnoreGetParameters: false,
             dynamicPageUrl: 'content-{{index}}',
             allowDuplicateUrls: false,
-            router: true,
+            router: false,
             // Push State
             pushState: false,
             pushStateRoot: undefined,
