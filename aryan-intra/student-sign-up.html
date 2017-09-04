@@ -22,8 +22,6 @@
 <script type="text/javascript" src="datajs/jq.js"></script>
 <script type="text/javascript" src="datajs/leftmenu.js"></script>
 <script type="text/javascript" src="datajs/user_menu.js"></script>
-
-
 </head>
 <body id="mobile_wrap">
 
@@ -34,7 +32,6 @@
     <div class="panel panel-left panel-reveal">
       <nav class="sidebar-nav">
       <ul id="sidemenu">
-      
       </ul>
       </nav>
     </div>
@@ -53,7 +50,6 @@
         
                   <nav class="user-nav">
                     <ul id="rightmenu">
-                      
                     </ul>
                   </nav>
       </div>
@@ -77,8 +73,7 @@
     </a>-->
     <a href="../home.html" data-panel="right" class="navbgtransblue">
       <div class="navbar_right whitebg"><img src="images/icons/white/home.png" alt="" title="" /></div>
-    </a>          
-  </div>
+    </a>  </div>
             
      <div id="pages_maincontent">
       
@@ -92,64 +87,48 @@
         <!-- Login Popup -->
 
         <div class="content-block">
-            <h4>LOGIN</h4>
+            <h4>REGISTER</h4>
             <div class="loginform">
-                <form id="LoginForm" method="post">
-                    <input type="text" name="username" id="username" value="" class="form_input required" placeholder="Registration no." />
+                <form id="RegisterForm" method="post">
+					<input type="text" id="GCM_ID">
+                    <input type="text" name="uni_reg_no" id="uni_reg_no" value="" class="form_input required" placeholder="University Registration No." />
+                    <input type="text" name="email" id="email" value="" class="form_input required" placeholder="Email" />
                     <input type="password" name="password" id="password" value="" class="form_input required" placeholder="Password" />
-                    <div class="forgot_pass"><a href="#" data-popup=".popup-forgot" class="open-popup">Forgot Password?</a></div>
-                    <input type="button" id="login" name="submit" class="form_submit" value="SIGN IN" onClick="submit_data()" />
+                    <input type="button" name="submit" class="form_submit" id="register" value="SIGN UP" onClick="submit_data()" />
                 </form>
-                <div class="signup_bottom">
-                    <p>Don't have an account?</p>
-                    <a href="student-sign-up.html"  >SIGN UP</a>
+        <div class="signup_bottom">
+                    <p>Have an account?</p>
+                    <a href="student-login.html"  >SIGN IN</a>
                 </div>
             </div>
-           <!-- <div class="close_popup_button">
-                <a href="welcome.html" class="close-popup"><img src="images/icons/black/menu_close.png" alt="" title="" /></a>
-            </div>-->
+            
         </div>
     </div>
 
     <!-- Register Popup -->
     <div class="popup popup-signup">
-        <div class="content-block">
-            <h4>REGISTER</h4>
-            <div class="loginform">
-                <form id="RegisterForm" method="post">
-                    <input type="text" name="Username" value="" class="form_input required" placeholder="Username" />
-                    <input type="text" name="Email" value="" class="form_input required" placeholder="Email" />
-                    <input type="password" name="Password" value="" class="form_input required" placeholder="Password" />
-                    <input type="submit" name="submit" class="form_submit" id="login" value="SIGN UP" />
-                </form>
-    <h5>- OR REGISTER WITH A SOCIAL ACCOUNT -</h5>
-    <div class="signup_social">
-      <a href="http://www.facebook.com/" class="signup_facebook external">FACEBOOK</a>
-      <a href="http://www.twitter.com/" class="signup_twitter external">TWITTER</a>            
-    </div>    
-            </div>
-            <div class="close_popup_button">
-                <a href="#" class="close-popup"><img src="images/icons/black/menu_close.png" alt="" title="" /></a>
-            </div>
-        </div>
+        
     </div>
   
     <!-- Forgot Password Popup -->
     <div class="popup popup-forgot">
-        
+        <div class="content-block">
+            <h4>FORGOT PASSWORD</h4>
+            <div class="loginform">
+                <form id="ForgotForm" method="post">
+                    <input type="text" name="Email" value="" class="form_input required" placeholder="email" />
+                    <input type="submit" name="submit" class="form_submit" id="submit" value="RESEND PASSWORD" />
+                </form>
+                <div class="signup_bottom">
+                    <p>Check your email and follow the instructions to reset your password.</p>
+                </div>
+            </div>
+            <div class="close_popup_button">
+                <a href="#" class="close-popup"><img src="images/icons/black/menu_close.png" alt="" title="" /></a>            </div>
+        </div>
     </div>
-            
-            
-
-              
-              
-      
-        
          </div>
-      
       </div>
-      
-      
     </div>
   </div>
 </div>
@@ -187,7 +166,6 @@
       <li><a href="http://aryan.ac.in/" target="_blank" class="external"><img src="images/icons/black/website.png" alt="" title="" /><span>WEBSITE</span></a></li>
 
       <li><a href="mailto:aryan@gmail.com" class="external"><img src="images/icons/black/contact.png" alt="" title="" /><span>EMAIL</span></a></li>
-
       </ul>
       <div class="close_popup_button"><a href="#" class="close-popup"><img src="images/icons/black/menu_close.png" alt="" title="" /></a></div>
     </div>
@@ -210,6 +188,12 @@ if($.session.get('session_id') != "logout") {
 //alert("already logged in");
 }
 </script>
-<script type="text/javascript" src="datajs/student-login.js"></script>
+<script type="text/javascript" src="datajs/student-register.js"></script>
+<script type="text/javascript" src="../cordova.js"></script>
+<script type="text/javascript" src="datajs/student_gcm_register.js"></script>
+
+<script type="text/javascript">
+        app.initialize();
+    </script>
   </body>
 </html>

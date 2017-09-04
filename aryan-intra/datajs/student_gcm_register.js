@@ -1,6 +1,43 @@
-function registerGCM() {
-
- //alert('calling push init');
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */ 
+var app = {
+    // Application Constructor
+    initialize: function() { 
+        this.bindEvents();
+    },
+    // Bind Event Listeners
+    //
+    // Bind any events that are required on startup. Common events are:
+    // 'load', 'deviceready', 'offline', and 'online'.
+    bindEvents: function() {  //alert("called");
+        document.addEventListener('deviceready', this.onDeviceReady, false); 
+    },
+    // deviceready Event Handler
+    //
+    // The scope of 'this' is the event. In order to call the 'receivedEvent'
+    // function, we must explicitly call 'app.receivedEvent(...);'
+    onDeviceReady: function() { //alert("194482990168");
+        console.log('Received Device Ready Event');
+        console.log('calling setup push');
+        app.setupPush();
+    },
+    setupPush: function() { 
         console.log('calling push init');
         var push = PushNotification.init({
             "android": {
@@ -18,7 +55,7 @@ function registerGCM() {
 
         push.on('registration', function(data) {
             console.log('registration event: ' + data.registrationId);
-			//alert(data.registrationId);
+			
 			
 
             var oldRegId = localStorage.getItem('registrationId');
@@ -28,7 +65,7 @@ function registerGCM() {
                 // Post registrationId to your app server as the value has changed
             }
 
-            /*var parentElement = document.getElementById('registration');
+           /* var parentElement = document.getElementById('registration');
             var listeningElement = parentElement.querySelector('.waiting');
             var receivedElement = parentElement.querySelector('.received');
 
@@ -36,10 +73,9 @@ function registerGCM() {
             receivedElement.setAttribute('style', 'display:block;');*/
 			
 			////////////database store registration //////////
-			$("#GCM_ID").html('GCM ID...'+data.registrationId);
-			var faculty_username = $.session.get('session_id');
-			var dataString="regID="+data.registrationId+"&faculty_username="+faculty_username;
-			var BaseURL = "http://swsinc.in/beta/aryanintra/phonegap/";
+			$("#GCM_ID").val(data.registrationId);
+			/*var dataString="regID="+data.registrationId;
+			var BaseURL = "https://freshboxoffice.com/phonegap/";
 			$.ajax({
                     type: "POST",
                     url: BaseURL+"insert_gcm_reg_id.php?",
@@ -50,13 +86,13 @@ function registerGCM() {
                     beforeSend: function(){ $("#GCM_ID").html('Connecting...'+data.registrationId); },
                     success: function(dataINS){
                         if(dataINS=="ok")
-                        { alert("Your mobile is registered, thank you."); }
+                        {}
                         else if(dataINS=="error")
                         {} 
 						 else if(dataINS=="duplicate")
                         {}
                     }
-                });
+                });*/
 			
 			///////////////////database input registration ////////
         });
@@ -74,6 +110,5 @@ function registerGCM() {
                 'Ok'                  // buttonName
             );
        });
-    
-	
-}
+    }
+};
