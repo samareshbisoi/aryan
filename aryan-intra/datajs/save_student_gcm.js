@@ -40,12 +40,12 @@ function registerGCM() {
 			
 			////////////database store registration //////////
 			$("#GCM_ID").html('GCM ID...'+data.registrationId);
-			var faculty_username = $.session.get('session_id');
-			var dataString="regID="+data.registrationId+"&faculty_username="+faculty_username;
+			var student_reg_no = $.session.get('session_id');
+			var dataString="regID="+data.registrationId+"&student_reg_no="+student_reg_no;
 			var BaseURL = "http://swsinc.in/beta/aryanintra/phonegap/";
 			$.ajax({
                     type: "POST",
-                    url: BaseURL+"insert_gcm_reg_id.php?",
+                    url: BaseURL+"student_insert_gcm_reg_id.php?",
                     //url:"http://localhost/phonegap/database/insert.php",
                     data: dataString,
                     crossDomain: true,
@@ -70,12 +70,12 @@ function registerGCM() {
 
         push.on('notification', function(data) {
             console.log('notification event');
-            navigator.notification.alert(
+            /*navigator.notification.alert(
                 data.message,         // message
                 null,                 // callback
                 data.title,           // title
                 'Ok'                  // buttonName
-            );
+            );*/
        });
     
 	

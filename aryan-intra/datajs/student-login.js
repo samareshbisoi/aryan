@@ -26,7 +26,7 @@ function submit_data() {
 							$("#username").val('') ;
 							$("#password").val('') ;
 							$.session.set('session_id', username);
-							$(location).attr('href', 'dashboard.html');
+							$(location).attr('href', 'student-dashboard.html');
                         }
                         else if(data=="auth_failed")
                         {
