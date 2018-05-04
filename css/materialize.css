@@ -2970,6 +2970,7 @@ td, th {
   text-align: left;
   vertical-align: middle;
   border-radius: 2px;
+      border: 1px solid rgb(51, 51, 51);
 }
 
 @media only screen and (max-width: 992px) {
@@ -9049,9 +9050,9 @@ textarea.materialize-textarea {
 /* Remove default Radio Buttons */
 [type="radio"]:not(:checked),
 [type="radio"]:checked {
-  position: absolute;
+  
   left: -9999px;
-  visibility: hidden;
+ 
 }
 
 [type="radio"]:not(:checked) + label,
