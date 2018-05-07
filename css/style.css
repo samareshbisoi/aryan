@@ -585,7 +585,7 @@ input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
 textarea.materialize-textarea {
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid #fff;
 }
 
 input:not([type]):focus:not([readonly]),
